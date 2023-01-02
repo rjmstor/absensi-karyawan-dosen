@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\AdminController;
+use App\http\Middleware\Role;
 
 
 /*
