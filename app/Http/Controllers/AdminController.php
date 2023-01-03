@@ -10,5 +10,9 @@ class AdminController extends Controller
         $users = Users::where('role','mahasiswa')->get();
         return view('home.admin.index', ['users'=>$users]);
     }
+    public function users(){
+        $users = Users::where('role','mahasiswa')->get();
+        return view('home.admin.users', ['users'=>$users]);
+    }
     
 }
