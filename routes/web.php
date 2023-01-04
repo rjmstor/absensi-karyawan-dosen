@@ -26,3 +26,7 @@ Route::post('/postlogin', [AuthController::class, 'postlogin']);
 
 Route::get('/home', [AbsenController::class, 'index'])->middleware(['auth', 'role:dosen']);
 Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware(['auth', 'role:dosen']);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::get('/downloadpdf', [AdminController::class, 'downloadpdf']);
+});
