@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Users;
+use App\Models\User;
 class AdminController extends Controller
 {
     public function user(){
@@ -14,4 +15,5 @@ class AdminController extends Controller
         $users = Users::where('role','mahasiswa')->get();
         return view('home.admin.users', ['users'=>$users]);
     }
+    
 }
