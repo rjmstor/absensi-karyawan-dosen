@@ -19,5 +19,8 @@ class AdminController extends Controller
         $prodi=Prodi::all();
         return view('home.admin.prodi', ['prodi'=>$prodi]);
     }
-    
+    public function addpbb(){
+        $users = Users::where('role','dosen')->get();
+        return view('home.admin.formadd', ['users'=>$users]);
+    }
 }
