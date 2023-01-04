@@ -14,7 +14,7 @@ class AuthController extends Controller
     }
 
     public function postlogin(Request $request){
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role'=>'mahasiswa'])){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role'=>'dosen'])){
             return redirect('/home');
         }else if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role'=>'admin'])){
             return redirect('/home/admin');
