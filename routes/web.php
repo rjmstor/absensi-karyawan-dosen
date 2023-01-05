@@ -30,4 +30,5 @@ Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware(['auth'
 Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::get('/downloadpdf', [AdminController::class, 'downloadpdf']);
 Route::get('/home/admin', [AdminController::class, 'user']);
+Route::get('/home/admin/users', [AdminController::class, 'users']);
 });
