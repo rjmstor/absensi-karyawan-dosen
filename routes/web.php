@@ -29,3 +29,4 @@ Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware(['auth'
 
 Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
 Route::get('/postpbb', [AdminController::class, 'postpbb']);
+Route::post('/postpbb', [AdminController::class, 'postpbb']);
