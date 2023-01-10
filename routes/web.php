@@ -28,5 +28,5 @@ Route::get('/home', [AbsenController::class, 'index'])->middleware(['auth', 'rol
 Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware(['auth', 'role:dosen']);
 
 Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
-Route::get('/postpbb', [AdminController::class, 'postpbb']);
+Route::get('/home/admin/add-pbb', [AdminController::class, 'addpbb']);
 Route::post('/postpbb', [AdminController::class, 'postpbb']);
