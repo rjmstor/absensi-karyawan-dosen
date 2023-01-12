@@ -30,5 +30,5 @@ Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware(['auth'
 Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
 Route::get('/home/admin/add-pbb', [AdminController::class, 'addpbb']);
 Route::post('/postpbb', [AdminController::class, 'postpbb']);
-
 Route::get('/home/admin/{id}/edit', [AdminController::class, 'editpbb']);
+Route::post('/home/admin/{id}/update', [AdminController::class, 'update']);
