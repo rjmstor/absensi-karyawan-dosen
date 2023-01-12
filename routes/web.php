@@ -33,4 +33,3 @@ Route::post('/postpbb', [AdminController::class, 'postpbb']);
 Route::get('/home/admin/{id}/edit', [AdminController::class, 'editpbb']);
 Route::post('/home/admin/{id}/update', [AdminController::class, 'update']);
 Route::get('/home/admin/{id}/delete', [AdminController::class, 'destroy']);
-//tes
