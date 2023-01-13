@@ -32,7 +32,7 @@
                 <a href="{{route('dashboard.absensi')}}"><i class="fa fa-table fa-fw"></i>Absensi</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Rekap Absensi</a>
+                <a href="{{route('rekapAbsen')}}"><i class="fa fa-edit fa-fw"></i>Rekap Absensi</a>
             </li>
         </ul>
     </div>

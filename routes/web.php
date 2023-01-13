@@ -31,15 +31,11 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/karyawan', 'karyawan')->name('dashboard.karyawan');
         Route::get('/dashboard/absensi', 'absensi')->name('dashboard.absensi');
         Route::get('/dashboard/sent-email', 'sentMail')->name('dashboard.email');
+        Route::post('/dashboard/simpan-absen', 'simpanAbsen')->middleware('auth')->name('simpanAbsen');
+        Route::get('/dashboard/rekap-absen', 'rekapAbsen')->name('rekapAbsen');
     });
 });
 
 Route::get('/home', [AbsenController::class, 'index'])->middleware(['auth']); //halaman absen
 Route::post('/absen', [AbsenController::class, 'absensi'])->middleware('auth')->name('absen');
 
-// Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
-// Route::get('/home/admin/add-pbb', [AdminController::class, 'addpbb']);
-// Route::post('/postpbb', [AdminController::class, 'postpbb']);
-// Route::get('/home/admin/{id}/edit', [AdminController::class, 'editpbb']);
-// Route::post('/home/admin/{id}/update', [AdminController::class, 'update']);
-// Route::get('/home/admin/{id}/delete', [AdminController::class, 'destroy']);

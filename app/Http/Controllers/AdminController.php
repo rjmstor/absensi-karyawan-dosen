@@ -9,6 +9,7 @@ use App\Models\Absensi;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifEmail;
+use App\Models\RekapAbsen;
 
 class AdminController extends Controller
 {
@@ -40,6 +41,33 @@ class AdminController extends Controller
             }
         }
         return redirect()->back();
+    }
+    public function simpanAbsen(Request $request)
+    {
+        $users = User::where('role_id', 1)->orWhere('role_id', 2)->get();
+        foreach($users as $user){
+            if(!$user->absensi){
+                RekapAbsen::create([
+                    'status' => 'Alfa',
+                    'keterangan' => null,
+                    'tanggal' => date("Y-m-d"),
+                    'user_id' => $user->id
+                ]);
+            }else{
+                RekapAbsen::create([
+                    'status' => $user->absensi->status,
+                    'keterangan' => $user->absensi->keterangan,
+                    'tanggal' => date("Y-m-d"),
+                    'user_id' => $user->id
+                ]);
+            }
+        }
+        return redirect()->back();
+    }
+    public function rekapAbsen()
+    {
+        $data['rekaps'] = rekapAbsen::all();
+        return view('admin.rekap')->with($data);
     }
     
 }

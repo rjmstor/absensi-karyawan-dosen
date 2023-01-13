@@ -126,7 +126,8 @@
             @endif
             let baseurl = "<?=url('/')?>";
             let fullURL = "<?=url()->full()?>";
-            </script>
 
+            </script>
+    @stack('js')
     </body>
 </html>

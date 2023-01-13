@@ -2,7 +2,7 @@
 @section('content')
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Absensi {{date('l')}}  {{date("d/m/Y")}}</h1>
+                <h1 class="page-header">Rekap Absen</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -17,10 +17,10 @@
                     <div class="panel-body">
                         <a href="{{route('dashboard.email')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
-                            Kirim Email Pengingat</a>
+                            Print PDF</a>
                         <button type="button" onclick="simpanAbsen()" class="btn btn-success" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
-                            Simpan Absen</button>
+                            Export Excel</button>
                             <br/><br/>
                             <form id="form-absen" class="form-absen" action="{{route('simpanAbsen')}}" method="post">
                                 @csrf
@@ -38,44 +38,20 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $no => $user)
-                                    @if (!$user->absensi)
-                                    <tr>
-                                        <td>{{$no+1}}</td>
-                                        @if ($user->role_id == 1)
-                    
-                                            <td>{{$user->dosen->nama}}</td>
-                                            @elseif($user->role_id == 2)
-                                            <td>{{$user->karyawan->nama}}</td>
-                        
-                                            @endif 
-                                            <td><p class="btn btn-sm btn-outline btn-danger">Belum Absen</p>
-                                               
-                                            </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    @else 
+                                    @foreach ($rekaps as $no => $rekap)
                                         <tr>
                                             <td>{{$no+1}}</td>
-                                            @if ($user->role_id == 1)
-                                            <td>{{$user->dosen->nama}}</td>
-                        
-                                            @elseif($user->role_id == 2)
-                                            <td>{{$user->karyawan->nama}}</td>
-                        
+                                            @if ($rekap->user->role_id == 1)
+                                            <td>{{$rekap->user->dosen->nama}}</td>
+                                            @elseif($rekap->user->role_id == 2)
+                                            <td>{{$rekap->user->karyawan->nama}}</td>
                                             @endif 
-                                            <td><p class="btn btn-sm btn-outline btn-success">{{$user->absensi->status}}</p>
-                                             
+                                            <td><p class="btn btn-sm btn-info">{{$rekap->status}}</p>
                                             </td>
-                                            <td>{{$user->absensi->keterangan}}</td>
-                                    
-                                            <td>{{$user->absensi->tanggal}}</td>
-                                   
+                                            <td>{{$rekap->keterangan}}</td>
+                                            <td>{{$rekap->tanggal}}</td>
                                             <td></td>
                                         </tr> 
-                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
