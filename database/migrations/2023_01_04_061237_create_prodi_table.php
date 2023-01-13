@@ -13,11 +13,9 @@ class CreateProdiTable extends Migration
      */
     public function up()
     {
-        Schema::create('prodi', function (Blueprint $table) {
+        Schema::create('prodis', function (Blueprint $table) {
             $table->id();
-            $table->string('name_pbb');
-            $table->string('alamat');
-            $table->string('wa');
+            $table->char('nama_prodi', 50);
             $table->timestamps();
         });
     }
