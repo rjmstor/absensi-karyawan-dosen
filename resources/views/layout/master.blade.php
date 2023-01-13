@@ -16,6 +16,8 @@
         <link href="{{asset('startmin-master/css/metisMenu.min.css')}}" rel="stylesheet">
 
         <!-- Custom CSS -->
+        <link href="{{asset('startmin-master/css/dataTables/dataTables.bootstrap.css')}}" rel="stylesheet">
+        <link href="{{asset('startmin-master/css/dataTables/dataTables.responsive.css')}}" rel="stylesheet">
         <link href="{{asset('startmin-master/css/startmin.css')}}" rel="stylesheet">
 
         <!-- Custom Fonts -->
@@ -38,14 +40,7 @@
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Blank</h1>
-                        </div>
                         @yield('content')
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
             </div>
@@ -65,6 +60,16 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="{{asset('startmin-master/js/startmin.js')}}"></script>
+        <script src="{{asset('startmin-master/js/dataTables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('startmin-master/js/dataTables/dataTables.bootstrap.min.js"')}}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#table-data').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
 
     </body>
 </html>

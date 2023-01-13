@@ -28,27 +28,6 @@ class AuthController extends Controller
         }
     }
 
-    public function register(){
-        return view('auth.register');
-    }
-
-    public function postregister(Request $request){
-    $this->validate($request, [
-        'name'=>'required',
-        'email'=>'required|email:dns',
-        'password'=>'required'
-        
-    ]);
-
-    $user=new \App\Models\User;
-    $user->role='admin';
-    $user->name= $request->name;
-    $user->email= $request->email;
-    $user->password= bcrypt($request->password);
-    $user->save();
-    return redirect('/');
-    }
-
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
