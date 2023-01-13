@@ -2,7 +2,7 @@
 @section('content')
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Data Karyawan</h1>
+                <h1 class="page-header">Data Dosen</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -21,24 +21,13 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nama</th>
+                                    <th>Status</th>
+                                    <th>Keterangan</th>
+                                    <th>Tanggal</th>
                                     <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($karyawans as $no => $karyawan)
-                                    <tr>
-                                        <td>{{$no+1}}</td>
-                                        <td>{{$karyawan->nama}}</td>
-                                        <td>
-                                            <form action="" method="post">
-                                                @csrf
-                                                <button type="submit" class="btn btn-sm btn-info">
-                                                    Reset Sandi
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -67,6 +67,57 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="{{asset('startmin-master/js/startmin.js')}}"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <!-- End custom js for this page-->
+          <script>
+            const Toast = Swal.mixin({
+              toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+              })
+              @if(Session::has('message'))
+            var type = "{{Session::get('alert-type')}}";
+            switch (type) {
+              case 'info':
+                Toast.fire({
+                        icon: 'info',
+                        title: "{{Session::get('message')}}"
+                          })
+                    break;
+                    case 'success':
+                      Toast.fire({
+                        icon: 'success',
+                        title: "{{Session::get('message')}}"
+                      })
+                      break;
+                      case 'warning':
+                        Toast.fire({
+                        icon: 'warning',
+                        title: "{{Session::get('message')}}"
+                    })
+                    break;  
+                    case 'error':
+                      Toast.fire({
+                        icon: 'error',
+                        title: "{{Session::get('message')}}"
+                      })
+                      break;
+            }
+            @endif
+            @if ($errors->any())
+            @foreach($errors->all() as $error)
+            Swal.fire({
+                icon: 'error',
+                title: "Oppsss",
+                text: "{{ $error }}",
+            });
+            @endforeach
+            @endif
+            let baseurl = "<?=url('/')?>";
+            let fullURL = "<?=url()->full()?>";
+            </script>
+
 
     </body>
 </html>

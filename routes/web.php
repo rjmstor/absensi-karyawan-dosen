@@ -29,11 +29,12 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard.index');
         Route::get('/dashboard/dosen', 'dosen')->name('dashboard.dosen');
         Route::get('/dashboard/karyawan', 'karyawan')->name('dashboard.karyawan');
+        Route::get('/dashboard/absensi', 'absensi')->name('dashboard.absensi');
     });
 });
 
 Route::get('/home', [AbsenController::class, 'index'])->middleware(['auth']); //halaman absen
-Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware('auth');
+Route::post('/absen', [AbsenController::class, 'absensi'])->middleware('auth')->name('absen');
 
 // Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
 // Route::get('/home/admin/add-pbb', [AdminController::class, 'addpbb']);
