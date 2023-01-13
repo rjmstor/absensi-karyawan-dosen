@@ -30,6 +30,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/dosen', 'dosen')->name('dashboard.dosen');
         Route::get('/dashboard/karyawan', 'karyawan')->name('dashboard.karyawan');
         Route::get('/dashboard/absensi', 'absensi')->name('dashboard.absensi');
+        Route::get('/dashboard/sent-email', 'sentMail')->name('dashboard.email');
     });
 });
 

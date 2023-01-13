@@ -15,9 +15,9 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <a href="#" class="btn btn-info" target="_blank" rel="noopener noreferrer">
+                        <a href="{{route('dashboard.email')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
-                            Notif Via Email</a>
+                            Kirim Email Pengingat</a>
                         <a href="#" class="btn btn-success" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                         Simpan Absen</a>
