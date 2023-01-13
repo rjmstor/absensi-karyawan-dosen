@@ -22,7 +22,7 @@ class CreateDosenTable extends Migration
             ->onDelete('Cascade')
             ->onUpdate('cascade');
             $table->bigInteger('prodi_id')->unsigned();
-            $table->foreign('prodi_id')->references('id')->on('prodi')
+            $table->foreign('prodi_id')->references('id')->on('prodis')
             ->onDelete('Cascade')
             ->onUpdate('cascade');
         });
