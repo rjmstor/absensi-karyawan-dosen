@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifEmail;
 use App\Models\RekapAbsen;
 use PDF;
+use Excel;
+use App\Exports\RekapAbsenExport;
 
 class AdminController extends Controller
 {
@@ -75,6 +77,10 @@ class AdminController extends Controller
         $rekaps = RekapAbsen::all();
         $pdf = PDF::loadview('admin.print_rekap_absen', ['rekaps' => $rekaps]);
         return $pdf->download('data_absensi.pdf');
+    }
+    public function exportRekapAbsen()
+    {
+        return Excel::download(new RekapAbsenExport, 'rekap_absen.xlsx');
     }
     
 }

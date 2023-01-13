@@ -18,13 +18,10 @@
                         <a href="{{route('print.rekapAbsen')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Print PDF</a>
-                        <button type="button" onclick="simpanAbsen()" class="btn btn-success" target="_blank" rel="noopener noreferrer">
-                            <i class="fa fa-fw" aria-hidden="true"></i>
-                            Export Excel</button>
+                        <a href="{{route('export.rekapAbsen')}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-fw" aria-hidden="true"></i>
+                            Export Excel</a>
                             <br/><br/>
-                            <form id="form-absen" class="form-absen" action="{{route('simpanAbsen')}}" method="post">
-                                @csrf
-                            </form>
                         <div class="table-responsive">
                             <table id="table-data" class="table table-bordered table-hover table-striped">
                                 <thead>

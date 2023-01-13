@@ -34,6 +34,7 @@ Route::middleware(['admin'])->group(function () {
         Route::post('/dashboard/simpan-absen', 'simpanAbsen')->middleware('auth')->name('simpanAbsen');
         Route::get('/dashboard/rekap-absen', 'rekapAbsen')->name('rekapAbsen');
         Route::get('/dashboard/print/rekap-absen', 'printRekapAbsen')->name('print.rekapAbsen');
+        Route::get('/dashboard/export/rekap-absen', 'exportRekapAbsen')->name('export.rekapAbsen');
     });
 });
 
