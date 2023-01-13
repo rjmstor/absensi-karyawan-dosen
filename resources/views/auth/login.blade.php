@@ -15,14 +15,14 @@
                                 {{csrf_field()}}
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                        <input class="form-control" placeholder="E-mail atau Username" name="email" type="text" autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                        <input class="form-control" placeholder="Password" name="password" type="password">
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
                                     <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
-                                    <a href="/register"><i>or Register</i></a>
+                                    {{-- <a href="/register"><i>or Register</i></a> --}}
                                 </fieldset>
                             </form>
                         </div>

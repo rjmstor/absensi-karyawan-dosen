@@ -8,8 +8,14 @@
     <div class="row mx-auto">
         <div class="col-md-6 col-md-offset-3">
             <div class="login-panel panel panel-default">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" class="ms-3 mt-4 float-right btn btn-danger">Logout</a> </h3>
+                    <form id="logout-form" action="{{ route('logout') }}"
+                                            method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                 <div class="panel-heading">
-                    <h3 class="panel-title">Selamat Datang {{ Auth::user()->name }} - <a href="/logout" class="btn btn-danger">Logout</a> </h3>
+                    <h3 class="panel-title">Selamat Datang {{ Auth::user()->name }} - 
                 </div>
                 <div class="panel-body">
                     <form role="form" method="POST" action="/absensi">

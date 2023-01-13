@@ -19,17 +19,28 @@ use App\http\Middleware\Role;
 |
 */
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/postregister', [AuthController::class, 'postregister']);
+// Route::get('/register', [AuthController::class, 'register'])->name('register');
+// Route::post('/postregister', [AuthController::class, 'postregister']);
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/postlogin', [AuthController::class, 'postlogin']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/home', [AbsenController::class, 'index'])->middleware(['auth', 'role:dosen']);
-Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware(['auth', 'role:dosen']);
+Route::middleware(['admin'])->group(function () {
+    Route::controller(HidanganController::class)->group(function () {
+        Route::get('/hidangan', 'index')->name('dashboard.hidangan');
+        Route::post('/hidangan/store', 'store')->name('dashboard.hidangan.store');
+        Route::get('/hidangan/edit/{id}', 'edit')->name('dashboard.hidangan.edit');
+        Route::patch('/hidangan/update', 'update')->name('dashboard.hidangan.update');
+        Route::delete('/hidangan/delete/{id}', 'delete')->name('dashboard.hidangan.delete');
+    });
+});
 
-Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
-Route::get('/home/admin/add-pbb', [AdminController::class, 'addpbb']);
-Route::post('/postpbb', [AdminController::class, 'postpbb']);
-Route::get('/home/admin/{id}/edit', [AdminController::class, 'editpbb']);
-Route::post('/home/admin/{id}/update', [AdminController::class, 'update']);
-Route::get('/home/admin/{id}/delete', [AdminController::class, 'destroy']);
+Route::get('/home', [AbsenController::class, 'index'])->middleware(['auth']); //halaman absen
+Route::post('/absensi', [AbsenController::class, 'absensi'])->middleware('auth');
+
+// Route::get('/home/admin/prodi', [AdminController::class, 'prodi']);
+// Route::get('/home/admin/add-pbb', [AdminController::class, 'addpbb']);
+// Route::post('/postpbb', [AdminController::class, 'postpbb']);
+// Route::get('/home/admin/{id}/edit', [AdminController::class, 'editpbb']);
+// Route::post('/home/admin/{id}/update', [AdminController::class, 'update']);
+// Route::get('/home/admin/{id}/delete', [AdminController::class, 'destroy']);
