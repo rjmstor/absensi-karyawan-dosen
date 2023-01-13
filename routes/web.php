@@ -33,6 +33,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/sent-email', 'sentMail')->name('dashboard.email');
         Route::post('/dashboard/simpan-absen', 'simpanAbsen')->middleware('auth')->name('simpanAbsen');
         Route::get('/dashboard/rekap-absen', 'rekapAbsen')->name('rekapAbsen');
+        Route::get('/dashboard/print/rekap-absen', 'printRekapAbsen')->name('print.rekapAbsen');
     });
 });
 

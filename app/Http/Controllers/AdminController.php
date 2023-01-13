@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifEmail;
 use App\Models\RekapAbsen;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -66,8 +67,14 @@ class AdminController extends Controller
     }
     public function rekapAbsen()
     {
-        $data['rekaps'] = rekapAbsen::all();
+        $data['rekaps'] = RekapAbsen::all();
         return view('admin.rekap')->with($data);
+    }
+    public function printRekapAbsen()
+    {
+        $rekaps = RekapAbsen::all();
+        $pdf = PDF::loadview('admin.print_rekap_absen', ['rekaps' => $rekaps]);
+        return $pdf->download('data_absensi.pdf');
     }
     
 }

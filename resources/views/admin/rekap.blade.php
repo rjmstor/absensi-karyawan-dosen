@@ -15,8 +15,8 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <a href="{{route('dashboard.email')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
-                            <i class="fa fa-fw" aria-hidden="true"></i>
+                        <a href="{{route('print.rekapAbsen')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-fw" aria-hidden="true"></i>
                             Print PDF</a>
                         <button type="button" onclick="simpanAbsen()" class="btn btn-success" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>

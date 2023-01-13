@@ -15,10 +15,10 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <a href="{{route('dashboard.email')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
+                        <a href="{{route('dashboard.email')}}" class="btn btn-info" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Kirim Email Pengingat</a>
-                        <button type="button" onclick="simpanAbsen()" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+                        <button type="button" onclick="simpanAbsen()" class="btn btn-success" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Simpan Absen</button>
                             <br/><br/>
