@@ -19,7 +19,11 @@ class AbsenController extends Controller
         $this->validate($request, [
             'status'=>'required',
         ]);
+        $notification = array(
+            'message' => 'Absen Berhasil',
+            'alert-type' => 'success'
+        );
         Absensi::create($request->all());
-        return redirect()->back();
+        return redirect()->back()->with($notification);
     }
 }

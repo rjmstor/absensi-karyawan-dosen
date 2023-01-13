@@ -32,7 +32,10 @@
                                         <td>
                                             <form action="" method="post">
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm btn-info">
+                                                <a href="#" class="btn btn-sm btn-success">
+                                                    Lihat
+                                                </a>
+                                                <button type="submit" class="btn btn-sm btn-warning">
                                                     Reset Sandi
                                                 </button>
                                             </form>

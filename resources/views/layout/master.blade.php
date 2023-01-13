@@ -15,9 +15,13 @@
         <!-- MetisMenu CSS -->
         <link href="{{asset('startmin-master/css/metisMenu.min.css')}}" rel="stylesheet">
 
-        <!-- Custom CSS -->
+        <!-- DataTables CSS -->
         <link href="{{asset('startmin-master/css/dataTables/dataTables.bootstrap.css')}}" rel="stylesheet">
+
+        <!-- DataTables Responsive CSS -->
         <link href="{{asset('startmin-master/css/dataTables/dataTables.responsive.css')}}" rel="stylesheet">
+
+        <!-- Custom CSS -->
         <link href="{{asset('startmin-master/css/startmin.css')}}" rel="stylesheet">
 
         <!-- Custom Fonts -->
@@ -49,20 +53,24 @@
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery -->
-        <script src="{{asset('startmin-master/js/jquery.min.js')}}"></script>
+                <!-- jQuery -->
+                <script src="{{asset('startmin-master/js/jquery.min.js')}}"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="{{asset('startmin-master/js/bootstrap.min.js')}}"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="{{asset('startmin-master/js/metisMenu.min.js')}}"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="{{asset('startmin-master/js/startmin.js')}}"></script>
-        <script src="{{asset('startmin-master/js/dataTables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('startmin-master/js/dataTables/dataTables.bootstrap.min.js"')}}"></script>
-
+                <!-- Bootstrap Core JavaScript -->
+                <script src="{{asset('startmin-master/js/bootstrap.min.js')}}"></script>
+        
+                <!-- Metis Menu Plugin JavaScript -->
+                <script src="{{asset('startmin-master/js/metisMenu.min.js')}}"></script>
+        
+                <!-- DataTables JavaScript -->
+                <script src="{{asset('startmin-master/js/dataTables/jquery.dataTables.min.js')}}"></script>
+                <script src="{{asset('startmin-master/js/dataTables/dataTables.bootstrap.min.js')}}"></script>
+        
+                <!-- Custom Theme JavaScript -->
+                <script src="{{asset('startmin-master/js/startmin.js')}}"></script>
+        
+                <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <!-- End custom js for this page-->
         <script>
             $(document).ready(function() {
                 $('#table-data').DataTable({
@@ -71,7 +79,6 @@
             });
         </script>
           <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-          <!-- End custom js for this page-->
           <script>
             const Toast = Swal.mixin({
               toast: true,

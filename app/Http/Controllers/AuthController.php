@@ -17,6 +17,10 @@ class AuthController extends Controller
     }
 
     public function postlogin(Request $request){
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password]) || Auth::attempt(['username' => $request->email, 'password' => $request->password] )){
             $notification = array(
                 'message' => 'Berhasil Login',
