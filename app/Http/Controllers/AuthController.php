@@ -18,8 +18,13 @@ class AuthController extends Controller
 
     public function postlogin(Request $request){
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password]) || Auth::attempt(['username' => $request->email, 'password' => $request->password] )){
-            $request->session()->regenerate();
-            return redirect('/home');
+            if(Auth::user()->role_id != 3){
+                $request->session()->regenerate();
+                return redirect('/home');
+            }else{
+                $request->session()->regenerate();
+                return redirect('/dashboard');
+            }
         }
     }
 

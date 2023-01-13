@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\AdminController;
-use App\http\Middleware\Role;
 
 
 /*
@@ -26,8 +25,8 @@ Route::post('/postlogin', [AuthController::class, 'postlogin']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['admin'])->group(function () {
-    Route::controller(HidanganController::class)->group(function () {
-        Route::get('/hidangan', 'index')->name('dashboard.hidangan');
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/dashboard', 'index')->name('dashboard.index');
         Route::post('/hidangan/store', 'store')->name('dashboard.hidangan.store');
         Route::get('/hidangan/edit/{id}', 'edit')->name('dashboard.hidangan.edit');
         Route::patch('/hidangan/update', 'update')->name('dashboard.hidangan.update');

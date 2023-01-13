@@ -15,7 +15,13 @@
                                             @csrf
                                         </form>
                 <div class="panel-heading">
-                    <h3 class="panel-title">Selamat Datang {{ Auth::user()->name }} - 
+                    @if (Auth::user()->role_id == 1)
+                    <h3 class="panel-title">Selamat Datang {{ Auth::user()->dosen->nama }}
+                    @elseif(Auth::user()->role_id == 2)
+                    <h3 class="panel-title">Selamat Datang {{ Auth::user()->karyawan->nama }}
+                    @else
+                    <h3 class="panel-title">Selamat Datang {{ Auth::user()->username}}
+                    @endif
                 </div>
                 <div class="panel-body">
                     <form role="form" method="POST" action="/absensi">

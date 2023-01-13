@@ -11,14 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($prodi as $i)
-        <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $i->name_pbb }}</td>
-            <td>{{ $i->wa}}</td>
-            <td><a href="/home/admin/{{ $i ->id }}/edit" class="btn btn-warning">Edit</a><a href="/home/admin/{{ $i ->id }}/delete" class="btn btn-danger">Delete</a></td>
-        </tr>
-        @endforeach
+
     </tbody>
 </table>
 
