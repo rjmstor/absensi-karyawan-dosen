@@ -93,6 +93,7 @@ class AdminController extends Controller
     public function rekapAbsen(Request $request)
     { 
         if($request->filled('tanggal')) {
+            $data['tanggal'] = $request->get('tanggal');
             $data['rekaps'] = RekapAbsen::whereDate('created_at', $request->get('tanggal'))->get();
             return view('admin.rekap')->with($data);
         }else{
@@ -102,11 +103,15 @@ class AdminController extends Controller
     }
     public function printRekapAbsen($tanggal = null)
     {
-        $rekaps = RekapAbsen::all();
+        if($tanggal != null) {
+            $rekaps = RekapAbsen::whereDate('created_at', $tanggal)->get();
+        }else{
+            $rekaps = RekapAbsen::all();
+        }
         $pdf = PDF::loadview('admin.print_rekap_absen', ['rekaps' => $rekaps]);
-        return $pdf->download('data_absensi.pdf');
+        return $pdf->download('rekap_absen_'.$tanggal.'.pdf');
     }
-    public function exportRekapAbsen($tanggal = null)
+    public function exportRekapAbsen()
     {
         return Excel::download(new RekapAbsenExport, 'rekap_absen.xlsx');
     }

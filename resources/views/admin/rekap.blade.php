@@ -15,14 +15,20 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <a href="{{route('print.rekapAbsen')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
+                        @if (!empty($tanggal))
+                        <a href="{{route('print.rekapAbsen',['tanggal' => $tanggal])}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Print PDF</a>
+                        @else
+                        <a href="{{route('print.rekapAbsen')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-fw" aria-hidden="true"></i>
+                            Print PDF</a>   
+                        @endif
                         <a href="{{route('export.rekapAbsen')}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Export Excel</a>
                             <br/><br>
-                            <form action="/dashboard/rekap-absen/" method="get" id="formTanggal">
+                            <form action="{{route('rekapAbsen')}}" method="get" id="formTanggal">
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Filter Sesuai Tanggal</label>
                                     <div class="col-sm-2">
