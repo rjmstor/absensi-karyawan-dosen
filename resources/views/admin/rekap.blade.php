@@ -22,16 +22,12 @@
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Export Excel</a>
                             <br/><br>
-                            <form action="/dashboard/rekap-absen/{tanggal?}" method="get" id="formTanggal">
+                            <form action="/dashboard/rekap-absen/" method="get" id="formTanggal">
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Filter Sesuai Tanggal</label>
                                     <div class="col-sm-2">
-                                        @if ($tanggal !== null)
-                                        <input type="date" value="{{$tanggal->tanggal}}" class="form-control" id="tanggal" name='tanggal'>    
-                                        @else
-                                        <input type="date" value="{{$tanggal->tanggal}}" class="form-control" id="tanggal" name='tanggal'>
-                                        @endif
-                                    </div>
+                                        <input type="date" class="form-control" id="tanggal" name='tanggal'> 
+                                    </div>   
                                 </div>
                             </form>
                         <div class="table-responsive">

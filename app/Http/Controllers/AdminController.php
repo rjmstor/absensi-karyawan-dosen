@@ -91,8 +91,7 @@ class AdminController extends Controller
 
     }
     public function rekapAbsen(Request $request)
-    {
-        $data['tanggal'] = RekapAbsen::whereDate('created_at', $request->get('tanggal'))->first(); 
+    { 
         if($request->filled('tanggal')) {
             $data['rekaps'] = RekapAbsen::whereDate('created_at', $request->get('tanggal'))->get();
             return view('admin.rekap')->with($data);
