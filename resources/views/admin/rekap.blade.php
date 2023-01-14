@@ -21,7 +21,19 @@
                         <a href="{{route('export.rekapAbsen')}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Export Excel</a>
-                            <br/><br/>
+                            <br/><br>
+                            <form action="/dashboard/rekap-absen/{tanggal?}" method="get" id="formTanggal">
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Filter Sesuai Tanggal</label>
+                                    <div class="col-sm-2">
+                                        @if ($tanggal !== null)
+                                        <input type="date" value="{{$tanggal->tanggal}}" class="form-control" id="tanggal" name='tanggal'>    
+                                        @else
+                                        <input type="date" value="{{$tanggal->tanggal}}" class="form-control" id="tanggal" name='tanggal'>
+                                        @endif
+                                    </div>
+                                </div>
+                            </form>
                         <div class="table-responsive">
                             <table id="table-data" class="table table-bordered table-hover table-striped">
                                 <thead>
@@ -79,5 +91,9 @@
                   }
               });
             }
+            $("#tanggal").change(function (e) {
+            e.preventDefault();
+            $("#formTanggal").submit();
+            });
     </script>
 @endpush

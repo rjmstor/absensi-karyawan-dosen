@@ -15,6 +15,7 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
+                        @if (empty($rekap))
                         <a href="{{route('dashboard.email')}}" class="btn btn-info" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Kirim Email Pengingat</a>
@@ -81,6 +82,9 @@
                                 </table>
                             </div>
                         <!-- /.table-responsive -->
+                        @else
+                        <h1>Data Absen Hari Ini Sudah Disimpan</h1>                 
+                        @endif
                     </div>
                     <!-- /.panel-body -->
                 </div>

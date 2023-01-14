@@ -32,9 +32,9 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/absensi', 'absensi')->name('dashboard.absensi');
         Route::get('/dashboard/sent-email', 'sentMail')->name('dashboard.email');
         Route::post('/dashboard/simpan-absen', 'simpanAbsen')->middleware('auth')->name('simpanAbsen');
-        Route::get('/dashboard/rekap-absen', 'rekapAbsen')->name('rekapAbsen');
-        Route::get('/dashboard/print/rekap-absen', 'printRekapAbsen')->name('print.rekapAbsen');
-        Route::get('/dashboard/export/rekap-absen', 'exportRekapAbsen')->name('export.rekapAbsen');
+        Route::get('/dashboard/rekap-absen/{tanggal?}', 'rekapAbsen')->name('rekapAbsen');
+        Route::get('/dashboard/print/rekap-absen/{tanggal?}', 'printRekapAbsen')->name('print.rekapAbsen');
+        Route::get('/dashboard/export/rekap-absen/{tanggal?}', 'exportRekapAbsen')->name('export.rekapAbsen');
     });
 });
 

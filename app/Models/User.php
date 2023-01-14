@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Karyawan::class, 'user_id', 'id');
     }
+    public function rekap()
+    {
+        return $this->hasMany(RekapAbsen::class, 'user_id', 'id');
+    }
 }
