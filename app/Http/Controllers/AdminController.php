@@ -111,9 +111,9 @@ class AdminController extends Controller
         $pdf = PDF::loadview('admin.print_rekap_absen', ['rekaps' => $rekaps]);
         return $pdf->download('rekap_absen_'.$tanggal.'.pdf');
     }
-    public function exportRekapAbsen()
+    public function exportRekapAbsen($tanggal = null)
     {
-        return Excel::download(new RekapAbsenExport, 'rekap_absen.xlsx');
+        return Excel::download(new RekapAbsenExport($tanggal), 'rekap_absen_'.$tanggal.'.xlsx');
     }
     
 }

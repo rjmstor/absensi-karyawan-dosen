@@ -19,14 +19,17 @@
                         <a href="{{route('print.rekapAbsen',['tanggal' => $tanggal])}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Print PDF</a>
+                            <a href="{{route('export.rekapAbsen',['tanggal' => $tanggal])}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-fw" aria-hidden="true"></i>
+                                Export Excel</a>
                         @else
                         <a href="{{route('print.rekapAbsen')}}" class="btn btn-info" target="_blank" rel="noopener noreferrer">
                             <i class="fa fa-fw" aria-hidden="true"></i>
                             Print PDF</a>   
+                            <a href="{{route('export.rekapAbsen')}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-fw" aria-hidden="true"></i>
+                                Export Excel</a>
                         @endif
-                        <a href="{{route('export.rekapAbsen')}}" class="btn btn-success" target="_blank" rel="noopener noreferrer">
-                            <i class="fa fa-fw" aria-hidden="true"></i>
-                            Export Excel</a>
                             <br/><br>
                             <form action="{{route('rekapAbsen')}}" method="get" id="formTanggal">
                                 <div class="form-group row">

@@ -15,9 +15,13 @@ class RekapAbsen extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public static function export()
+    public static function export($tanggal)
     {
-        $rekaps = RekapAbsen::all();
+        if($tanggal != null) {
+            $rekaps = RekapAbsen::whereDate('created_at', $tanggal)->get();
+        }else{
+            $rekaps = RekapAbsen::all();
+        }
         $rekaps_filter = [];
         foreach($rekaps as $no => $rekap){
             if ($rekap->user->role_id == 1){
