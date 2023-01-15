@@ -35,7 +35,7 @@
                                             <form id="formResetSandiDosen" action="{{route('resetSandiDosen', $dosen->user_id)}}" method="post">
                                                 @method('patch')
                                                 @csrf
-                                                <a href="#" class="btn btn-sm btn-success">
+                                                <a href="{{route('rekapAbsenDosen', $dosen->user_id)}}" class="btn btn-sm btn-success">
                                                     Lihat
                                                 </a>
                                                 <button type="button" onclick="resetSandi('{{$dosen->nama}}')" class="btn btn-sm btn-warning">
