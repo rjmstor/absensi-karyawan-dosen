@@ -25,6 +25,28 @@ class AdminController extends Controller
         $data['dosens'] = Dosen::all();
         return view('admin.dosen')->with($data);
     }
+    public function resetSandiDosen($id)
+    {
+        User::where('id', $id)->update([
+            'password' => bcrypt('12345')
+        ]);
+        $notification = array(
+            'message' => 'Kata Sandi Berhasi Diset Ke Default',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function resetSandiKaryawan($id)
+    {
+        User::where('id', $id)->update([
+            'password' => bcrypt('12345')
+        ]);
+        $notification = array(
+            'message' => 'Kata Sandi Berhasi Diset Ke Default',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
     public function karyawan()
     {
         $data['karyawans'] = Karyawan::all();

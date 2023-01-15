@@ -36,6 +36,10 @@
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Filter Sesuai Tanggal</label>
                                     <div class="col-sm-2">
                                         <input type="date" class="form-control" id="tanggal" name='tanggal'> 
+                                    </div> 
+                                    <div class="col-sm-2">
+                                        <a href="{{route('rekapAbsen')}}" class="btn btn-info" rel="noopener noreferrer">
+                                            Tampilkan Semua</a>
                                     </div>   
                                 </div>
                             </form>

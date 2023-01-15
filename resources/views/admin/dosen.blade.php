@@ -32,12 +32,13 @@
                                         <td>{{$dosen->nama}}</td>
                                         <td>{{$dosen->prodi->nama_prodi}}</td>
                                         <td>
-                                            <form action="" method="post">
+                                            <form id="formResetSandiDosen" action="{{route('resetSandiDosen', $dosen->user_id)}}" method="post">
+                                                @method('patch')
                                                 @csrf
                                                 <a href="#" class="btn btn-sm btn-success">
                                                     Lihat
                                                 </a>
-                                                <button type="submit" class="btn btn-sm btn-warning">
+                                                <button type="button" onclick="resetSandi('{{$dosen->nama}}')" class="btn btn-sm btn-warning">
                                                     Reset Sandi
                                                 </button>
                                             </form>
@@ -56,3 +57,22 @@
             <!-- /.col-lg-12 -->
         </div>   
 @stop
+@push('js')
+    <script>
+            function resetSandi(nama){
+              Swal.fire({
+                icon: 'question',
+                title: 'Set Default Kata Sandi '+nama+' ?',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                  if (result.isConfirmed) {
+                    $('#formResetSandiDosen').submit();
+                  }
+              });
+            }
+    </script>
+@endpush
