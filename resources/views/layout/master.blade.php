@@ -127,7 +127,5 @@
             let baseurl = "<?=url('/')?>";
             let fullURL = "<?=url()->full()?>";
             </script>
-
-        p
     </body>
 </html>
