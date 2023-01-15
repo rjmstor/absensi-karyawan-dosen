@@ -47,6 +47,12 @@ class AdminController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    public function rekapAbsenDosen($id)
+    {
+        $data['rekaps'] = User::where('id', $id)->first();
+        
+        return view('admin.rekapAbsenDosen')->with($data);
+    }
     public function karyawan()
     {
         $data['karyawans'] = Karyawan::all();
