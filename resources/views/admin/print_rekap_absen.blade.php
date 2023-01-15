@@ -40,6 +40,7 @@
                     @endforeach
                 </tbody>
             </table>
+    {{-- finish --}}
     </body>
     </html>
     

@@ -53,6 +53,12 @@ class AdminController extends Controller
         
         return view('admin.rekapAbsenDosen')->with($data);
     }
+    public function rekapAbsenKaryawan($id)
+    {
+        $data['rekaps'] = User::where('id', $id)->first();
+        
+        return view('admin.rekapAbsenKaryawan')->with($data);
+    }
     public function karyawan()
     {
         $data['karyawans'] = Karyawan::all();
