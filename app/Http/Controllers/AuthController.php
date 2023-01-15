@@ -4,48 +4,49 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Pembimbing;
-
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
     public function login(){
         return view('auth.login');
     }
 
     public function postlogin(Request $request){
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role'=>'dosen'])){
-            return redirect('/home');
-        }else if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role'=>'admin'])){
-            return redirect('/home/admin');
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password]) || Auth::attempt(['username' => $request->email, 'password' => $request->password] )){
+            $notification = array(
+                'message' => 'Berhasil Login',
+                'alert-type' => 'success'
+            );
+            if(Auth::user()->role_id != 3){
+                $request->session()->regenerate();
+                return redirect('/home')->with($notification);
+            }else{
+                $request->session()->regenerate();
+                return redirect('/dashboard')->with($notification);
+            }
         }else{
-            return redirect('/');
+            $notification = array(
+                'message' => 'Password Atau Username Atau Email Salah',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
         }
     }
 
-    public function register(){
-        return view('auth.register');
-    }
-
-    public function postregister(Request $request){
-    $this->validate($request, [
-        'name'=>'required',
-        'email'=>'required|email:dns',
-        'password'=>'required'
-        
-    ]);
-
-    $user=new \App\Models\User;
-    $user->role='admin';
-    $user->name= $request->name;
-    $user->email= $request->email;
-    $user->password= bcrypt($request->password);
-    $user->save();
-    return redirect('/');
-    }
-
-    public function logout(){
+    public function logout(Request $request){
         Auth::logout();
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
         return redirect('/');
     }
 }

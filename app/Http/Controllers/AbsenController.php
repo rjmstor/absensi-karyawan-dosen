@@ -4,24 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Absensi;
+use Illuminate\Support\Facades\Auth;
 
 class AbsenController extends Controller
 {
-    public function index(){
-        return view('home.index');
+    public function index()
+    {
+        $data['absen'] = Absensi::where('user_id', Auth::user()->id)->first();
+        return view('home.index')->with($data);
     }
 
-    public function absensi(Request $request){
+    public function absensi(Request $request)
+    {
         $this->validate($request, [
-            'users_id'=>'required',
             'status'=>'required',
-            'keterangan'=>'required',
         ]);
-        $absen=new \App\Models\Absensi;
-        $absen->users_id=$request->users_id;
-        $absen->status= $request->status;
-        $absen->keterangan= $request->keterangan;
-        $absen->save();
-        return back();
+        $notification = array(
+            'message' => 'Absen Berhasil',
+            'alert-type' => 'success'
+        );
+        Absensi::create($request->all());
+        return redirect()->back()->with($notification);
     }
 }

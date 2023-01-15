@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 
-class Role
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -15,11 +14,11 @@ class Role
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->role == $role) {
-            return $next($request);
+        if(auth()->user()->role_id != 3){
+            return redirect()->back();
         }
-            return redirect('/');
+        return $next($request);
     }
 }
