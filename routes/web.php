@@ -30,6 +30,7 @@ Route::middleware(['admin', 'auth'])->group(function () {
         Route::get('/dashboard/dosen', 'dosen')->name('dashboard.dosen');
         Route::patch('/dashboard/dosen/{id}/reset-sandi', 'resetSandiDosen')->name('resetSandiDosen');
         Route::get('/dashboard/dosen/{id}/rekap-absen', 'rekapAbsenDosen')->name('rekapAbsenDosen');
+        Route::get('/dashboard/karyawan/{id}/rekap-absen', 'rekapAbsenKaryawan')->name('rekapAbsenKaryawan');
         Route::patch('/dashboard/karyawan/{id}/reset-sandi', 'resetSandiKaryawan')->name('resetSandiKaryawan');
         Route::get('/dashboard/karyawan', 'karyawan')->name('dashboard.karyawan');
         Route::get('/dashboard/absensi', 'absensi')->name('dashboard.absensi');
